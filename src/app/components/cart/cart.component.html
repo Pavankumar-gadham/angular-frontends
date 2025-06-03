@@ -1,0 +1,40 @@
+<h2 class="cart-heading">My Cart</h2>
+
+<div class="cart-section">
+  <div class="cart-grid" *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems" class="cart-grid-item">
+      <img [src]="item.image" alt="{{ item.name }}" class="cart-item-image" />
+
+      <div class="cart-item-info">
+        <h4>{{ item.name }}</h4>
+        <p>₹{{ item.price }} × {{ item.quantity }}</p>
+        <p><strong>Subtotal: ₹{{ item.price * item.quantity }}</strong></p>
+
+        <div class="quantity-controls">
+          <button class="qty-btn" (click)="decreaseQuantity(item)">−</button>
+          <span class="qty-count">{{ item.quantity }}</span>
+          <button class="qty-btn" (click)="increaseQuantity(item)">+</button>
+        </div>
+
+        <button class="remove-btn" (click)="removeItem(item)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+  </ng-template>
+</div>
+
+<!-- Total Amount Section -->
+<div *ngIf="cartItems.length > 0" class="cart-total">
+  <hr />
+  <p><strong>Total: ₹{{ getSubtotal() }}</strong></p>
+</div>
+
+<!-- Go to Checkout Button -->
+<div *ngIf="cartItems.length > 0" class="checkout-btn-section">
+  <button routerLink="/checkout" class="go-checkout-btn">Go to Checkout</button>
+</div>
+
+<br />

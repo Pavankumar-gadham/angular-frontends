@@ -1,0 +1,43 @@
+<h2 class="fw-bold text-center my-4">Menus</h2>
+
+<div class="container">
+  <div class="row g-4">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let menu of menuItems">
+      <div class="card h-100 border-0 shadow-sm">
+        <img *ngIf="menu.image" [src]="menu.image" alt="{{ menu.name }}" class="card-img-top img-fluid object-fit-cover" />
+
+        <div class="card-body">
+          <!-- Rating -->
+          <div class="mb-2">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+              <span class="material-icons text-warning align-middle" [ngClass]="{
+                'text-warning': menu.rating >= star,
+                'text-muted': menu.rating < star
+              }">
+                {{ menu.rating >= star ? 'star' : (menu.rating >= star - 0.5 ? 'star_half' : 'star_border') }}
+              </span>
+            </ng-container>
+            <span class="text-muted small ms-1">({{ menu.reviews }} Reviews)</span>
+          </div>
+
+          <!-- Name -->
+          <h6 class="fw-bold mb-1">{{ menu.name }}</h6>
+
+          <!-- Price -->
+          <p class="fw-semibold text-muted mb-2">₹{{ menu.price }}</p>
+
+          <!-- Description -->
+          <p class="small text-secondary mb-3">{{ menu.description }}</p>
+
+          <button class="btn btn-sm btn-outline-dark w-100" (click)="addToCart(menu)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success mt-4 text-center success-banner">
+  {{ successMessage }}
+</div>
+<app-footer></app-footer>
+

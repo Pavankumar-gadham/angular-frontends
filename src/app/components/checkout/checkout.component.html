@@ -1,0 +1,56 @@
+<h2 class="checkout-heading">Checkout</h2>
+
+<div class="checkout-section" *ngIf="cartItems.length > 0; else emptyCart">
+  <div *ngFor="let item of cartItems" class="checkout-summary-item">
+    <h4>{{ item.name }}</h4>
+    <p>₹{{ item.price }} × {{ item.quantity }}</p>
+    <p>Subtotal: ₹{{ item.price * item.quantity }}</p>
+  </div>
+
+  <hr />
+
+  <div class="charges">
+    <p>Subtotal: ₹{{ getSubtotal() }}</p>
+    <p>Delivery Charges: ₹{{ deliveryCharge }}</p>
+    <p><strong>Total: ₹{{ getSubtotal() + deliveryCharge }}</strong></p>
+  </div>
+
+  <div class="payment-methods">
+    <h4>Select Payment Method</h4>
+    <label><input type="radio" name="payment" value="COD" [(ngModel)]="selectedPayment" /> Cash on Delivery (COD)</label>
+    <label><input type="radio" name="payment" value="Debit Card" [(ngModel)]="selectedPayment" /> Debit Card</label>
+    <label><input type="radio" name="payment" value="Credit Card" [(ngModel)]="selectedPayment" /> Credit Card</label>
+    <label><input type="radio" name="payment" value="Net Banking" [(ngModel)]="selectedPayment" /> Net Banking</label>
+  </div>
+
+  <!-- Card Details -->
+  <div *ngIf="selectedPayment === 'Debit Card' || selectedPayment === 'Credit Card'">
+    <input type="text" placeholder="Card Holder Name" [(ngModel)]="cardHolderName" />
+    <input type="text" placeholder="Card Number" [(ngModel)]="cardNumber" />
+    <input type="text" placeholder="Expiry (MM/YY)" [(ngModel)]="expiry" />
+    <input type="text" placeholder="CVV" [(ngModel)]="cvv" />
+  </div>
+
+  <!-- Net Banking -->
+  <div *ngIf="selectedPayment === 'Net Banking'">
+    <select [(ngModel)]="selectedBank">
+      <option value="">--Select Bank--</option>
+      <option value="HDFC">HDFC</option>
+      <option value="ICICI">ICICI</option>
+      <option value="SBI">SBI</option>
+      <option value="Axis">Axis</option>
+    </select>
+  </div>
+
+
+  <div>
+  <label for="deliveryAddress">Delivery Address:</label><br/>
+  <textarea id="deliveryAddress" rows="3" cols="40" [(ngModel)]="deliveryAddress" placeholder="Enter your delivery address"></textarea>
+</div>
+
+  <button class="place-order-btn" (click)="placeOrder()">Place Order</button>
+</div>
+
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>

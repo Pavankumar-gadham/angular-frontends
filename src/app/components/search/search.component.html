@@ -1,0 +1,16 @@
+<h2>Search Results for "{{ query }}"</h2>
+
+<div *ngIf="results.length > 0; else noResults">
+  <div *ngFor="let item of results" class="search-item">
+    <img [src]="item.image" alt="{{ item.name }}" class="search-item-image" />
+    <div class="search-item-details">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+      <p><strong>Price:</strong> ₹{{ item.price }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <p>No matching food items found.</p>
+</ng-template>

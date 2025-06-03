@@ -1,0 +1,162 @@
+
+
+.grubhub-features {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.features-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.feature-item {
+  flex: 1 1 300px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.feature-item img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.hero {
+  background-color: #fff7f5;
+}
+
+.hero-img {
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.semibold {
+  text-decoration: none;
+  border-radius: 30px;
+  border: solid black;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+}
+
+.semibold:hover {
+  background-color: #303030;
+}
+
+.img-fluid {
+  height: 28pc;
+  width: 30pc;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(60%);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.searchbar {
+  display: flex;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  max-width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.searchbar input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.searchbar button {
+  background-color: #ff3c00;
+  color: white;
+  border: none;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.searchbar .material-icons {
+  font-size: 20px;
+}
+
+.card-img-container {
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+

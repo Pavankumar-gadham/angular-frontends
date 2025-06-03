@@ -1,0 +1,142 @@
+/* Headings */
+.cart-heading {
+  color: #000000;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Cart Styles */
+.cart-section .cart-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cart-grid-item {
+  display: flex;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  background-color: #f9fafb;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.qty-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  margin: 0 5px;
+  border: none;
+  background-color: #e5e7eb;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.qty-btn:hover {
+  background-color: #d1d5db;
+}
+
+.qty-count {
+  font-weight: bold;
+}
+
+/* Remove Button */
+.remove-btn {
+  margin-top: 0.5rem;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #f73b11;
+}
+
+.checkout-btn-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.go-checkout-btn {
+  background-color: #000000;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.go-checkout-btn:hover {
+  background-color: #f73b11;
+}
+
+@media screen and (max-width: 600px) {
+  .go-checkout-btn {
+    width: 90%;
+    font-size: 15px;
+  }
+}
+
+.cart-total {
+  text-align: right;
+  font-size: 18px;
+  margin: 20px 10px 10px;
+  color: #222;
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.checkout-btn-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.go-checkout-btn {
+  background-color: #000000;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.go-checkout-btn:hover {
+  background-color: #f73b11;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+<h2 class="text-center mb-4">Login</h2>
+
+<form (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate>
+  <!-- Username -->
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      class="form-control"
+      [(ngModel)]="username"
+      required
+      minlength="3"
+      #usernameField="ngModel"
+    />
+    <div class="text-danger" *ngIf="usernameField.invalid && usernameField.touched">
+      <small *ngIf="usernameField.errors?.['required']">Username is required.</small>
+      <small *ngIf="usernameField.errors?.['minlength']">
+        Minimum 3 characters required.
+      </small>
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      [(ngModel)]="password"
+      required
+      minlength="6"
+      #passwordField="ngModel"
+    />
+    <div class="text-danger" *ngIf="passwordField.invalid && passwordField.touched">
+      <small *ngIf="passwordField.errors?.['required']">Password is required.</small>
+      <small *ngIf="passwordField.errors?.['minlength']">
+        Minimum 6 characters required.
+      </small>
+    </div>
+  </div>
+
+  <!-- Confirm Password -->
+  <div class="mb-4">
+    <label for="confirmPassword" class="form-label">Confirm Password</label>
+    <input
+      type="password"
+      id="confirmPassword"
+      name="confirmPassword"
+      class="form-control"
+      [(ngModel)]="confirmPassword"
+      required
+      #confirmPasswordField="ngModel"
+    />
+    <div class="text-danger" *ngIf="confirmPasswordField.touched && confirmPassword !== password">
+      <small>Passwords do not match.</small>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button
+    type="submit"
+    class="btn btn-primary w-100"
+    [disabled]="loginForm.invalid || password !== confirmPassword"
+  >
+    Login
+  </button>
+
+  <div *ngIf="loginSuccess" class="text-success text-center mt-3">
+  <strong>Login successful! Redirecting to home page...</strong>
+</div>
+
+<div class="text-center mt-3">
+  <span>Not registered? </span>
+  <a routerLink="/register" class="text-decoration-none">Register</a>
+</div>
+</form>

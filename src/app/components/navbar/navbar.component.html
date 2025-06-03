@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <a routerLink="/" class="logo">
+      <img src="assets/images/fc6.png" alt="FoodCourt" style="width: 200px;" height="50px"/>
+    </a>
+  </div>
+
+  <div class="nav-center">
+    <a routerLink="/restaurants-list" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Restaurants</a>
+
+    <a *ngIf="authService.isLoggedIn" routerLink="/my-orders" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+      <span class="material-icons">receipt_long</span>
+      My Orders
+    </a>
+
+    <a routerLink="/cart" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="cart-icon">
+      🛒 Cart
+      <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+    </a>
+
+    <a routerLink="/aboutus" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="cart-icon">
+      About us
+    </a>
+  </div>
+
+  <div class="nav-right">
+    <a *ngIf="!authService.isLoggedIn" routerLink="/register" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="auth-link">Register</a>
+    <a *ngIf="!authService.isLoggedIn" routerLink="/login" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="auth-link">Login</a>
+    <button *ngIf="authService.isLoggedIn" (click)="logout()">Logout</button>
+  </div>
+</nav>

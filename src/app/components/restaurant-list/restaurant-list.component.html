@@ -1,0 +1,32 @@
+<h2 class="text-center mt-4 mb-4 fw-bold">Check the Restaurants Below!</h2>
+
+<div *ngIf="loading" class="text-center text-muted fs-5">Loading restaurants...</div>
+
+<div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+
+<div class="container">
+  <div class="row gy-4 justify-content-center" *ngIf="!loading && !error">
+    <div *ngFor="let restaurant of restaurants" class="col-md-4 col-sm-6">
+      <div class="card restaurant-card h-100 shadow-sm border-0">
+        <img
+          *ngIf="restaurant.image"
+          [src]="restaurant.image"
+          [alt]="restaurant.name"
+          class="card-img-top restaurant-image"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold text-dark">{{ restaurant.name }}</h5>
+          <p class="card-text text-muted">{{ restaurant.address }}</p>
+          <a
+            [routerLink]="['/restaurants-list', restaurant.id, 'menus']"
+            
+          >
+            View Menu
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

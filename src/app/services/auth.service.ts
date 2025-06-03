@@ -12,13 +12,6 @@ export class AuthService {
   private loginUrl = `${environment.apiUrl}/token/`;
   private refreshUrl = `${environment.apiUrl}/token/refresh/`;
 
-
-  // export class AuthService {
-  // private registerUrl = 'http://localhost:8000/api/register/';
-  // private loginUrl = 'http://localhost:8000/api/token/';
-  // private refreshUrl = 'http://localhost:8000/api/token/refresh/';
-  
-
   private _isLoggedIn = false;
 
   get isLoggedIn(): boolean {

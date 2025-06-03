@@ -2,14 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private registerUrl = 'http://localhost:8000/api/register/';
-  private loginUrl = 'http://localhost:8000/api/token/';
-  private refreshUrl = 'http://localhost:8000/api/token/refresh/';
+  private registerUrl = `${environment.apiUrl}/register/`;
+  private loginUrl = `${environment.apiUrl}/token/`;
+  private refreshUrl = `${environment.apiUrl}/token/refresh/`;
+
+
+  // export class AuthService {
+  // private registerUrl = 'http://localhost:8000/api/register/';
+  // private loginUrl = 'http://localhost:8000/api/token/';
+  // private refreshUrl = 'http://localhost:8000/api/token/refresh/';
+  
 
   private _isLoggedIn = false;
 

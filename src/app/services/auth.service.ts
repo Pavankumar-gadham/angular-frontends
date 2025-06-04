@@ -24,18 +24,24 @@ export class AuthService {
   }
 
   register(userData: any): Observable<any> {
-    return this.http.post(this.registerUrl, userData);
-  }
+  return this.http.post(this.registerUrl, userData, {
+    withCredentials: true
+  });
+}
+
 
   login(credentials: any): Observable<any> {
-    return this.http.post(this.loginUrl, credentials).pipe(
-      tap((response: any) => {
-        localStorage.setItem('access_token', response.access);
-        localStorage.setItem('refresh_token', response.refresh);
-        this._isLoggedIn = true;
-      })
-    );
-  }
+  return this.http.post(this.loginUrl, credentials, {
+    withCredentials: true
+  }).pipe(
+    tap((response: any) => {
+      localStorage.setItem('access_token', response.access);
+      localStorage.setItem('refresh_token', response.refresh);
+      this._isLoggedIn = true;
+    })
+  );
+}
+
 
   logout(): void {
     localStorage.removeItem('access_token');
@@ -52,11 +58,14 @@ export class AuthService {
   }
 
   refreshToken(): Observable<any> {
-    const refresh = localStorage.getItem('refresh_token');
-    return this.http.post(this.refreshUrl, { refresh }).pipe(
-      tap((response: any) => {
-        localStorage.setItem('access_token', response.access);
-      })
-    );
-  }
+  const refresh = localStorage.getItem('refresh_token');
+  return this.http.post(this.refreshUrl, { refresh }, {
+    withCredentials: true
+  }).pipe(
+    tap((response: any) => {
+      localStorage.setItem('access_token', response.access);
+    })
+  );
+}
+
 }
